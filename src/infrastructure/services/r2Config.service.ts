@@ -49,8 +49,9 @@ class R2ConfigService {
 
   /**
    * Get configuration from environment variables
+   * Public method for external use (e.g., initR2FromEnv)
    */
-  private getConfigFromEnv(): R2Config {
+  getConfigFromEnv(): R2Config {
     const accountId =
       process.env.EXPO_PUBLIC_R2_ACCOUNT_ID ||
       process.env.R2_ACCOUNT_ID ||
