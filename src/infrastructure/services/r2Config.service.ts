@@ -3,6 +3,27 @@
  * @description Manages R2 configuration with runtime and environment-based initialization
  */
 
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      readonly EXPO_PUBLIC_R2_ACCOUNT_ID?: string;
+      readonly R2_ACCOUNT_ID?: string;
+      readonly EXPO_PUBLIC_R2_ACCESS_KEY_ID?: string;
+      readonly R2_ACCESS_KEY_ID?: string;
+      readonly EXPO_PUBLIC_R2_SECRET_ACCESS_KEY?: string;
+      readonly R2_SECRET_ACCESS_KEY?: string;
+      readonly EXPO_PUBLIC_R2_BUCKET_NAME?: string;
+      readonly R2_BUCKET_NAME?: string;
+      readonly EXPO_PUBLIC_R2_PUBLIC_DOMAIN?: string;
+      readonly R2_PUBLIC_DOMAIN?: string;
+    }
+  }
+
+  var process: {
+    env: NodeJS.ProcessEnv;
+  };
+}
+
 import type { R2Config, R2PathStructure } from "../../domain/entities";
 import { DEFAULT_R2_PATHS } from "../constants";
 
